@@ -4,7 +4,8 @@ import { LavinouOptions } from "../model/LavinouOptions";
 
 const LavinouContext = createContext<LavinouOptions>({
     baseUrl: "",
-    apiKey: ""
+    apiKey: "",
+    debug: true
 })
 
 interface LavinouProviderProps {

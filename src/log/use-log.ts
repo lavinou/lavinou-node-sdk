@@ -2,8 +2,11 @@ import { useState } from "react";
 import { useLavinouOptions } from "../core/context";
 
 interface Log {
-    project: string,
+    project: string
     data: Object
+    environment: string
+    type: string
+    level: string
 }
 
 interface LogResponse {
@@ -19,10 +22,11 @@ interface LogHook {
 }
 
 export const useLog = (): LogHook => {
-    const {baseUrl, apiKey} = useLavinouOptions()
+    const {baseUrl, apiKey, debug} = useLavinouOptions()
     const [value, setValue] = useState<LogResponse | null>(null)
 
     const log = (log: Log) => {
+        log.environment = debug ? "DEBUG" : "PROD"
         fetch(`${baseUrl}/logs/`,{
             method: 'POST',
             headers: {
