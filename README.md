@@ -1,2 +1,2 @@
-# lavinou-npm
-npm package for lavinou common code
+# Lavinou Common
+Public library used to access common code

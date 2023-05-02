@@ -1,0 +1,2 @@
+
+export { LavinouOptions } from './LavinouOptions'
