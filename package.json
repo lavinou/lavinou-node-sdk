@@ -1,6 +1,6 @@
 {
   "name": "@lavinou/common",
-  "version": "0.1.14",
+  "version": "0.5.0",
   "description": "Package used to manage lavinou common react hooks",
   "author": "lavinou",
   "license": "Apache-2.0",

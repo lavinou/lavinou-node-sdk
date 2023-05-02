@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 import { LavinouOptions } from "../model/LavinouOptions";
 
 
@@ -14,7 +14,14 @@ interface LavinouProviderProps {
 
 
 export const LavinouProvider = ({children, options}: LavinouProviderProps) => {
-    return <LavinouContext.Provider value={options}>
+
+    const [value, setValue] = useState<LavinouOptions>(options)
+
+    useEffect(()=>{
+        setValue(options)
+    },[options])
+
+    return <LavinouContext.Provider value={value}>
         {children}
     </LavinouContext.Provider>
 }
