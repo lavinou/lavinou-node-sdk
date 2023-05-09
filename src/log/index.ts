@@ -1,2 +1,2 @@
 
-export { useLog } from './use-log'
+export { useLog, log } from './use-log'

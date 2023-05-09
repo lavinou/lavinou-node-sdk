@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useLavinouOptions } from "../core/context"
+import { LavinouOptions } from "../core/model"
 
 interface ContactMe {
     email: string
@@ -30,7 +31,7 @@ export const useContactMe = (): ContactMeHook => {
     const [data, setValue] = useState<ContacMeReponse | null>(null)
 
     const contactMe = (payload: ContactMe) => {
-        fetch(`${baseUrl}/subscriptions/new/`,{
+        fetch(`${baseUrl}/contactme/new/`,{
             method: 'POST',
             headers: {
                 'Authorization': `Api-Key ${apiKey}`,
@@ -45,4 +46,15 @@ export const useContactMe = (): ContactMeHook => {
         data,
         contactMe
     }
+}
+
+export const contactMe = async (payload: ContactMe, {baseUrl, apiKey}: LavinouOptions): Promise<ContacMeReponse> => {
+    return fetch(`${baseUrl}/contactme/new/`,{
+        method: 'POST',
+        headers: {
+            'Authorization': `Api-Key ${apiKey}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    }).then((res)=>res.json())
 }

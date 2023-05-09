@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLavinouOptions } from '../core/context'
+import { LavinouOptions } from '../core/model'
 
 interface EmailSubscription {
     id: string
@@ -37,4 +38,18 @@ export const useEmailSubscriber = (): EmailSubscriberResponse => {
         data,
         subscribe
     }
+}
+
+export const emailSubscribe = async (email: string, {baseUrl, apiKey}: LavinouOptions): Promise<EmailSubscriberResponse> => {
+    return fetch(`${baseUrl}/subscriptions/new/`,{
+        method: 'POST',
+        headers: {
+            'Authorization': `Api-Key ${apiKey}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            type: "EMAIL",
+            value: email
+        })
+    }).then((res)=>res.json())
 }

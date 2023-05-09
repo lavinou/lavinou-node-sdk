@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLavinouOptions } from "../core/context";
+import { LavinouOptions } from "../core/model";
 
 interface Log {
     project: string
@@ -43,4 +44,15 @@ export const useLog = (): LogHook => {
         log
     }
 
+}
+
+export const log = async (log: Log, {baseUrl, apiKey}: LavinouOptions): Promise<LogResponse> => {
+    return fetch(`${baseUrl}/logs/`,{
+        method: 'POST',
+        headers: {
+            'Authorization': `Api-Key ${apiKey}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(log)
+    }).then((res)=>res.json())
 }
