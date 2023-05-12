@@ -1,1 +1,1 @@
-export { useContactMe, contactMe } from './use-contact-me'
+export { useContactMe, contactMe, ContactMe, ContacMeReponse } from './use-contact-me'

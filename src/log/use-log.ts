@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLavinouOptions } from "../core/context";
 import { LavinouOptions } from "../core/model";
 
-interface Log {
+export interface Log {
     project: string
     data: Object
     environment: string
@@ -10,19 +10,19 @@ interface Log {
     level: string
 }
 
-interface LogResponse {
+export interface LogResponse {
     id: string
     project: string 
     data: Object
     created_at: string
 }
 
-interface LogHook {
+export interface LogAction {
     value: LogResponse | null,
     log: (log: Log) => void
 }
 
-export const useLog = (): LogHook => {
+export const useLog = (): LogAction => {
     const {baseUrl, apiKey, debug} = useLavinouOptions()
     const [value, setValue] = useState<LogResponse | null>(null)
 

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useLavinouOptions } from '../core/context'
 import { LavinouOptions } from '../core/model'
 
-interface EmailSubscription {
+export interface EmailSubscription {
     id: string
     type: string
     value: string
@@ -10,7 +10,7 @@ interface EmailSubscription {
     project: string
 }
 
-interface EmailSubscriberResponse {
+export interface EmailSubscriberResponse {
     data: EmailSubscription | null
     subscribe: (email: string) => void
 }

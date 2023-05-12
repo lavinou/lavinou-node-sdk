@@ -1,2 +1,2 @@
 
-export { useEmailSubscriber, emailSubscribe } from './use-email-subscriber'
+export { useEmailSubscriber, emailSubscribe, EmailSubscription, EmailSubscriberResponse } from './use-email-subscriber'

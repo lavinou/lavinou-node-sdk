@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useLavinouOptions } from "../core/context"
 import { LavinouOptions } from "../core/model"
 
-interface ContactMe {
+export interface ContactMe {
     email: string
     first_name: string
     last_name: string
@@ -10,7 +10,7 @@ interface ContactMe {
     summary: string
 }
 
-interface ContacMeReponse {
+export interface ContacMeReponse {
     id: string 
     email: string
     first_name: string
