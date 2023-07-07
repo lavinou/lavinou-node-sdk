@@ -5,4 +5,10 @@ export {
 export { useLog, log, Log, LogResponse, LogAction } from './log'
 export { useEmailSubscriber, emailSubscribe, EmailSubscriberResponse, EmailSubscription } from './subscriber'
 export { useContactMe, contactMe, ContactMe, ContacMeReponse } from './contact-me'
-
+export {
+    useCreate,
+    useDelete,
+    useList,
+    useOne,
+    useUpdate,
+} from './datasource/'
